@@ -71,6 +71,35 @@ public class BoardCommentDaoImpl implements BoardCommentDao {
 		}
 		return null;
 	}
+	
+	@Override
+  public BoardComment selectOne(int id, int boardNumber) {
+	  try {
+      Class.forName("com.mysql.cj.jdbc.Driver");
+      BoardComment boardComments = new BoardComment();
+      Connection conn = DriverManager.getConnection(url, username, password);   
+      Statement stmt = conn.createStatement();
+      String queryText = String.format(
+                "select * from boardComment where id = " + id + " and boardNumber = " + boardNumber + ";");
+      ResultSet rset = stmt.executeQuery(queryText);
+      
+      while (rset.next()) {
+        boardComments.setId(rset.getInt(1));
+        boardComments.setWriter(rset.getString(2));
+        boardComments.setComment(rset.getString(3));
+        boardComments.setDate(rset.getDate(4));
+        boardComments.setBoardNumber(rset.getInt(5));
+      }
+      rset.close();
+      stmt.close();
+      conn.close();
+      
+      return boardComments;
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
 
 	@Override
 	public void update(BoardComment boardComment) {
@@ -111,5 +140,7 @@ public class BoardCommentDaoImpl implements BoardCommentDao {
 		}
 		
 	}
+
+  
 	
 }

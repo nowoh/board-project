@@ -18,6 +18,9 @@
 	String writer = request.getParameter("writer");
 	String comment = request.getParameter("comment");
 	int boardNumber = Integer.parseInt(request.getParameter("id"));
+	BoardItemService boardItemService = new BoardItemServiceImpl();
+	boardItemService.updateViewcountMinus(boardNumber);
+	
 	BoardCommentService boardCommentService = new BoardCommentServiceImpl();
 	
 	BoardComment boardComments = new BoardComment();

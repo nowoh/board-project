@@ -41,10 +41,14 @@ public class BoardItemServiceImpl implements BoardItemService{
 	}
 
 	@Override
-	public void updateViewcount(int id) {
-		boardItemDao.updateViewcount(id);
-		
+	public void updateViewcountPlus(int id) {
+		boardItemDao.updateViewcountPlus(id);
 	}
+	
+	@Override
+  public void updateViewcountMinus(int id) {
+	  boardItemDao.updateViewcountMinus(id);
+  }
 
 	@Override
 	public List<Integer> pageCal(String pages) {
@@ -55,5 +59,7 @@ public class BoardItemServiceImpl implements BoardItemService{
 	public List<Integer> searchPageCal(String search, String select, String pages) {
 		return boardItemDao.searchPageCal(search, select, pages);
 	}
+
+  
 
 }

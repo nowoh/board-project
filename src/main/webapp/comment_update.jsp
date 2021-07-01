@@ -12,8 +12,30 @@
 <head>
 <meta charset="EUC-KR">
 <title>Comment Update</title>
+<%
+	int id = Integer.parseInt(request.getParameter("id"));
+	int boardNumber = Integer.parseInt(request.getParameter("boardNumber"));
+	BoardCommentService boardCommentService = new BoardCommentServiceImpl();
+	BoardComment boardComment = boardCommentService.selectOne(id, boardNumber);
+%>
+  <script>
+    beforeComment = "<%=boardComment.getComment()%>";
+    var comment = prompt("내용 수정", beforeComment);
+    if (comment == true) {
+      alert("게시글이 수정되었습니다.");
+	  document.location.href="gongji_view.jsp?id=<%=boardNumber%>";
+    } else {
+      document.location.href="gongji_view.jsp?id=<%=boardNumber%>";
+    }
+  </script>
 </head>
 <body>
-
+<%
+	boardComment.setComment(${comment});
+	boardCommentService.update(boardComment);
+%>
+  <script>
+	document.write(beforeComment);
+  </script>
 </body>
 </html>

@@ -16,7 +16,8 @@ public interface BoardItemDao {
 	
 	//	U
 	void update(BoardItem boardItem);
-	void updateViewcount(int id);
+	void updateViewcountPlus(int id);
+	void updateViewcountMinus(int id);
 	
 	//	D
 	void delete(int id);

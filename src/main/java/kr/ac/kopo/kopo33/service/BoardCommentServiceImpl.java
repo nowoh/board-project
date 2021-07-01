@@ -20,6 +20,11 @@ public class BoardCommentServiceImpl implements BoardCommentService {
 	public List<BoardComment> selectAll(int boardNumber) {
 		return boardCommentDao.selectAll(boardNumber);
 	}
+	
+	@Override
+  public BoardComment selectOne(int id, int boardNumber) {
+    return boardCommentDao.selectOne(id, boardNumber);
+  }
 
 	@Override
 	public void update(BoardComment boardComment) {
@@ -32,5 +37,7 @@ public class BoardCommentServiceImpl implements BoardCommentService {
 		boardCommentDao.delete(id, boardNumber);
 		
 	}
+
+  
 
 }

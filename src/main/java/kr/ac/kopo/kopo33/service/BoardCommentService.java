@@ -10,6 +10,7 @@ public interface BoardCommentService {
 	
 	// R
 	List<BoardComment> selectAll (int boardNumber);
+	BoardComment selectOne (int id, int boardNumber);
 	
 	// U
 	void update (BoardComment boardComment);

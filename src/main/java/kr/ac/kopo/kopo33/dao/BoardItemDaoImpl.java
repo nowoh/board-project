@@ -186,7 +186,7 @@ public class BoardItemDaoImpl implements BoardItemDao {
 	}
 
 	@Override
-	public void updateViewcount(int id) {
+	public void updateViewcountPlus(int id) {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			Connection conn = DriverManager.getConnection(url, username, password);   
@@ -197,8 +197,21 @@ public class BoardItemDaoImpl implements BoardItemDao {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
+	
+	@Override
+  public void updateViewcountMinus(int id) {
+	  try {
+      Class.forName("com.mysql.cj.jdbc.Driver");
+      Connection conn = DriverManager.getConnection(url, username, password);   
+      Statement stmt = conn.createStatement();
+      stmt.execute("update gongji set viewcount = viewcount -1 where id = " + id + ";");
+      stmt.close();
+      conn.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 
 	@Override
 	public List<Integer> pageCal(String pages) {
@@ -328,4 +341,6 @@ public class BoardItemDaoImpl implements BoardItemDao {
 		}
 		return null;
 	}
+
+  
 }

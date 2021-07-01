@@ -103,7 +103,7 @@
     //게시글 하나 보기
   	BoardItemService boardItemService = new BoardItemServiceImpl();
 	BoardItem boardItems = boardItemService.selectOne(id);
-	boardItemService.updateViewcount(id);
+	boardItemService.updateViewcountPlus(id);
 	//작성된 댓글 보기
 	BoardCommentService boardCommentService = new BoardCommentServiceImpl();
 	List<BoardComment> boardComments = boardCommentService.selectAll(id);
@@ -168,7 +168,9 @@
 	  </tr>
 	</table>
 	<div>
-	  <button class="btt commentBtt" value="수정" onclick="location.href='comment_update.jsp'"><i class="fas fa-tools"></i></button>
+	  <button class="btt commentBtt" value="수정" onclick="location.href='comment_update.jsp?id=<%=boardComment.getId()%>&boardNumber=<%=boardComment.getBoardNumber()%>'">
+	    <i class="fas fa-tools"></i>
+	  </button>
 	  <button class="btt commentBtt" value="삭제" onclick="location.href='comment_delete.jsp?id=<%=boardComment.getId()%>&boardNumber=<%=boardComment.getBoardNumber()%>'">
 	    <i class="fas fa-eraser"></i>
 	  </button>
@@ -183,5 +185,14 @@
       out.println(e); 
     } 
 %>
+<script>
+  function modify(id, boardNumber, comment) {
+    commentPrompt = prompt("내용 수정", comment);
+    if (commentPrompt == true) {
+    	alert("게시물이 수정되었습니다.");
+    	document.location.href='gongji_view.jsp?id=${comment}';
+    }
+  }
+</script>
 </body>
 </html>
