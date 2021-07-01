@@ -182,8 +182,8 @@ button:hover {
 		<button type=button id="button"	onclick="location.href='gongji_insert.jsp'">글쓰기 <i class="fas fa-pen"></i></button>
 		<br><br>
 		<div id="Pages">
-			<a href="?pages=<%=1%>">처음</a> <a
-					href="?pages=<%=pagesCal.get(4) - 1%>">이전</a>
+			<a href="?pages=<%=1%>">처음</a>
+			<a href="?pages=<%=pagesCal.get(4) - 1%>">이전</a>
 			<%
 			for (int iCount = pagesCal.get(7); iCount <= pagesCal.get(6); iCount++) {
 			  if (iCount == pagesCal.get(4)) {
@@ -193,10 +193,9 @@ button:hover {
 			  }
 			}
 			%>
-			<a href="?pages=<%=pagesCal.get(4) + 1%>">다음</a> <a
-					href="?pages=<%=pagesCal.get(1) %>">끝</a>
+			<a href="?pages=<%=pagesCal.get(4) + 1%>">다음</a> 
+			<a href="?pages=<%=pagesCal.get(1) %>">끝</a>
 		</div>
-
 	</span>
 </form>
 <% 
