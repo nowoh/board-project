@@ -2,38 +2,58 @@ package kr.ac.kopo.kopo33.service;
 
 import java.util.List;
 
+import kr.ac.kopo.kopo33.dao.BoardItemDao;
+import kr.ac.kopo.kopo33.dao.BoardItemDaoImpl;
 import kr.ac.kopo.kopo33.domain.BoardItem;
 
 public class BoardItemServiceImpl implements BoardItemService{
 
+	private BoardItemDao boardItemDao = new BoardItemDaoImpl();
+	
 	@Override
 	public void create(BoardItem boardItem) {
-		// TODO Auto-generated method stub
-		
+		boardItemDao.create(boardItem);
 	}
 
 	@Override
 	public BoardItem selectOne(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return boardItemDao.selectOne(id);
 	}
 
 	@Override
-	public List<BoardItem> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BoardItem> selectAll(int startLimit) {
+		return boardItemDao.selectAll(startLimit);
 	}
 
 	@Override
 	public void update(BoardItem boardItem) {
-		// TODO Auto-generated method stub
+		boardItemDao.update(boardItem);
+	}
+
+	@Override
+	public void delete(int id) {
+		boardItemDao.delete(id);
+	}
+
+	@Override
+	public List<BoardItem> searchView(String search, String select, int startLimit) {
+		return boardItemDao.searchView(search, select, startLimit);
+	}
+
+	@Override
+	public void updateViewcount(int id) {
+		boardItemDao.updateViewcount(id);
 		
 	}
 
 	@Override
-	public void delete(BoardItem boardItem) {
-		// TODO Auto-generated method stub
-		
+	public List<Integer> pageCal(String pages) {
+		return boardItemDao.pageCal(pages);
+	}
+
+	@Override
+	public List<Integer> searchPageCal(String search, String select, String pages) {
+		return boardItemDao.searchPageCal(search, select, pages);
 	}
 
 }

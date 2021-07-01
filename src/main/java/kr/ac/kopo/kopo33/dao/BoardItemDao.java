@@ -9,13 +9,17 @@ public interface BoardItemDao {
 	
 	//	R
 	BoardItem selectOne (int id);
-	List<BoardItem> selectAll();
+	List<BoardItem> selectAll(int startLimit);
+	List<BoardItem> searchView (String search, String select, int startLimit);
+	List<Integer> pageCal(String pages);
+	List<Integer> searchPageCal(String search, String select, String pages);
 	
 	//	U
 	void update(BoardItem boardItem);
+	void updateViewcount(int id);
 	
 	//	D
-	void delete(BoardItem boardItem);
+	void delete(int id);
 	
 	
 	

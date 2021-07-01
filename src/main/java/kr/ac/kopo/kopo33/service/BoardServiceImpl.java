@@ -12,20 +12,18 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void create(Board board) {
-		// TODO Auto-generated method stub
+		boardDao.create(board);
 		
 	}
 
 	@Override
 	public Board selectOne(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.selectOne(id);
 	}
 
 	@Override
 	public List<Board> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.selectAll();
 	}
 
 	@Override

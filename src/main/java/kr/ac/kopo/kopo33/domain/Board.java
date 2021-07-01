@@ -1,8 +1,9 @@
 package kr.ac.kopo.kopo33.domain;
 
 public class Board {
-	int id;
-	String title;
+	private int id;
+	private String title;
+	
 	public int getId() {
 		return id;
 	}
