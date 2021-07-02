@@ -28,6 +28,7 @@ public class BoardDaoImpl implements BoardDao {
 			ppst.executeUpdate();
 			
 			ppst.close();
+			  
 			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();

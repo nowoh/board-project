@@ -20,7 +20,7 @@
 %>
   <script>
     beforeComment = "<%=boardComment.getComment()%>";
-    var comment = prompt("내용 수정", beforeComment);
+    comment = prompt("내용 수정", beforeComment);
     if (comment == true) {
       alert("게시글이 수정되었습니다.");
 	  document.location.href="gongji_view.jsp?id=<%=boardNumber%>";
@@ -31,7 +31,7 @@
 </head>
 <body>
 <%
-	boardComment.setComment(${comment});
+	boardComment.setComment("<script>comment</script>");
 	boardCommentService.update(boardComment);
 %>
   <script>

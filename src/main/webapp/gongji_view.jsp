@@ -190,7 +190,7 @@
     commentPrompt = prompt("내용 수정", comment);
     if (commentPrompt == true) {
     	alert("게시물이 수정되었습니다.");
-    	document.location.href='gongji_view.jsp?id=${comment}';
+    	window.location.href='gongji_view.jsp?id=' + boardNumber;
     }
   }
 </script>
