@@ -11,7 +11,7 @@ import java.util.List;
 import kr.ac.kopo.kopo33.domain.BoardItem;
 
 public class BoardItemDaoImpl implements BoardItemDao {
-	private static String url = "jdbc:mysql://192.168.23.84:3306/kopo33";
+	private static String url = "jdbc:mysql://192.168.23.95:3306/kopo33";
 	private static String username = "root";
 	private static String password = "kopo33";
 	

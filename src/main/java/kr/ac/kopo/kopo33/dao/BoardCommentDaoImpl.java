@@ -12,7 +12,7 @@ import kr.ac.kopo.kopo33.domain.BoardComment;
 import kr.ac.kopo.kopo33.domain.BoardItem;
 
 public class BoardCommentDaoImpl implements BoardCommentDao {
-	private static String url = "jdbc:mysql://192.168.23.84:3306/kopo33";
+	private static String url = "jdbc:mysql://192.168.23.95:3306/kopo33";
 	private static String username = "root";
 	private static String password = "kopo33";
 	
