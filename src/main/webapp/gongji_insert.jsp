@@ -71,6 +71,7 @@
     
   </style>
 </head>
+<body>
   <form method="post" name="form">
   <span class="table">
     <h1>신규 글 등록</h1>
